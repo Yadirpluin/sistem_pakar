@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ae7f37e-563a-447d-9a78-a894f7ee1970">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     hasil.`ID_Tanaman` AS hasil_ID_Tanaman,
+     hasil.`Nama_Tanaman` AS hasil_Nama_Tanaman,
+     hasil.`Penyakit` AS hasil_Penyakit,
+     hasil.`Penjelasan` AS hasil_Penjelasan,
+     hasil.`Pengendalian` AS hasil_Pengendalian
+FROM
+     `hasil` hasil]]>
+	</queryString>
+	<field name="hasil_ID_Tanaman" class="java.lang.String"/>
+	<field name="hasil_Nama_Tanaman" class="java.lang.String"/>
+	<field name="hasil_Penyakit" class="java.lang.String"/>
+	<field name="hasil_Penjelasan" class="java.lang.String"/>
+	<field name="hasil_Pengendalian" class="java.lang.String"/>
+	<group name="hasil_ID_Tanaman">
+		<groupExpression><![CDATA[$F{hasil_ID_Tanaman}]]></groupExpression>
+		<groupHeader>
+			<band height="40"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="234" height="22" uuid="08c59694-b8ec-4fbc-acb9-687600965ccc"/>
+				<text><![CDATA[Sistem Diagnosa Tanaman]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="519" y="0" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="726be00b-d67c-4d25-96f8-6eea8a2dfbe6"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="d08b077a-6f5d-490d-9ea1-c05a68fc1396"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[SDT (Sistem Pakar)]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="1f6a8c3d-7fbe-4062-9737-d088ef8cc283"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="138" height="15" uuid="a3850d59-5453-4087-8cb3-65bca2e780a3"/>
+				<text><![CDATA[Nama Tanaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="138" y="19" width="138" height="15" uuid="a9e8ff72-ad0a-49c3-b605-513b431dfe1c"/>
+				<text><![CDATA[hasil_Penyakit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="138" height="15" uuid="24abeec5-e320-4383-9dac-464a75068dd0"/>
+				<text><![CDATA[hasil_Penjelasan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="19" width="138" height="15" uuid="c6be5643-f325-4762-855f-9cf6f4f1c5cc"/>
+				<text><![CDATA[hasil_Pengendalian]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="233" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="218" uuid="a83e74cd-0c20-4dc5-968a-202ccc6ddb13"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="138" height="15" uuid="3e042d95-5f7b-440c-b448-410da6b97482"/>
+				<textFieldExpression><![CDATA[$F{hasil_Nama_Tanaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="391" y="0" width="134" height="233" uuid="472805d9-9022-4430-9686-5c2cec56ac46"/>
+				<textFieldExpression><![CDATA[$F{hasil_Pengendalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="263" y="1" width="107" height="232" uuid="a08fe123-d6b8-4308-a9a7-eec85ca4b244"/>
+				<textFieldExpression><![CDATA[$F{hasil_Penjelasan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="115" y="0" width="104" height="233" uuid="498e2a76-b71f-4a89-b73c-f8efa9d11dde"/>
+				<textFieldExpression><![CDATA[$F{hasil_Penyakit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="0a092ca6-1187-40a1-84b0-ff48875b636c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="06bbcfb7-70f3-4607-9838-bfc43249e7b0"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="e55f7288-5d4b-4fdc-b590-fee7910327ae"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="3b1a2ce7-be71-47bf-a659-7afe05ce0afd"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
